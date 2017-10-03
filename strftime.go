@@ -47,6 +47,7 @@ var directives = map[byte]appender{
 	'Z': timefmt("MST"),      // time zone name
 	'z': timefmt("-0700"),    // time zone ofset from UTC
 	'%': verbatim("%"),
+	's': unixtime{},
 }
 
 type combiningAppend struct {

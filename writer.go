@@ -166,3 +166,9 @@ func (v hourwblank) Append(b []byte, t time.Time) []byte {
 	}
 	return append(b, strconv.Itoa(h)...)
 }
+
+type unixtime struct{}
+
+func (v unixtime) Append(b []byte, t time.Time) []byte {
+	return append(b, strconv.FormatInt(t.Unix(), 10)...)
+}

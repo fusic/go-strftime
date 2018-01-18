@@ -147,4 +147,15 @@ func TestFormatZeropad(t *testing.T) {
 			return
 		}
 	}
+	{
+		dt := time.Date(100, 1, 1, 1, 0, 0, 0, time.UTC)
+		s, err := strftime.Format("%r", dt)
+		if !assert.NoError(t, err, `strftime.Format succeeds`) {
+			return
+		}
+
+		if !assert.Equal(t, "01:00:00 AM", s, "padding is properly set") {
+			return
+		}
+	}
 }

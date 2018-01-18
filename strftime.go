@@ -31,7 +31,7 @@ var directives = map[byte]appender{
 	'P': timefmt("pm"),
 	'p': timefmt("PM"),
 	'R': timefmt("15:04"),
-	'r': timefmt("3:04:05 PM"),
+	'r': timefmt("03:04:05 PM"),
 	'S': timefmt("05"),
 	'T': timefmt("15:04:05"),
 	't': verbatim("\t"),

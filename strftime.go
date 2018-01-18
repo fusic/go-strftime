@@ -38,7 +38,7 @@ var directives = map[byte]appender{
 	'U': weeknumberOffset(0), // week number of the year, Sunday first
 	'u': weekday(1),
 	'V': &weeknumber{},
-	'v': timefmt("_2-JAN-2006"),
+	'v': &vmsdate{}, // timefmt("_2-JAN-2006"),
 	'W': weeknumberOffset(1), // week number of the year, Monday first
 	'w': weekday(0),
 	'X': timefmt("15:04:05"), // national representation of the time XXX is this correct?

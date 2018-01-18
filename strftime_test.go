@@ -159,3 +159,20 @@ func TestFormatZeropad(t *testing.T) {
 		}
 	}
 }
+
+func TestFormatMonth(t *testing.T) {
+	l := envload.New()
+	defer l.Restore()
+
+	os.Setenv("LC_ALL", "C")
+
+	dt := time.Date(100, 3, 1, 1, 0, 0, 0, time.UTC)
+	s, err := strftime.Format("%v", dt)
+	if !assert.NoError(t, err, `strftime.Format succeeds`) {
+		return
+	}
+
+	if !assert.Equal(t, " 1-MAR-0100", s, "padding is properly set") {
+		return
+	}
+}

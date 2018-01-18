@@ -184,3 +184,27 @@ func (v millisecond) Append(b []byte, t time.Time) []byte {
 	}
 	return append(b, strconv.Itoa(n)...)
 }
+
+type vmsdate struct{}
+
+func (v vmsdate) Append(b []byte, t time.Time) []byte {
+	d := t.Day()
+	if d < 10 {
+		b = append(b, ' ')
+	}
+	b = append(b, strconv.Itoa(d)...)
+
+	b = append(b, '-')
+	b = append(b, strings.ToUpper(t.Month().String()[:3])...)
+
+	b = append(b, '-')
+	y := t.Year()
+	if y < 10 {
+		b = append(b, '0', '0', '0')
+	} else if y < 100 {
+		b = append(b, '0', '0')
+	} else if y < 1000 {
+		b = append(b, '0')
+	}
+	return append(b, strconv.Itoa(y)...)
+}

@@ -21,7 +21,7 @@ var directives = map[byte]appender{
 	'F': timefmt("2006-01-02"),
 	'H': timefmt("15"),
 	'h': timefmt("Jan"), // same as 'b'
-	'I': timefmt("3"),
+	'I': timefmt("03"),
 	'j': &dayofyear{},
 	'k': hourwblank(false),
 	'l': hourwblank(true),

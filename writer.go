@@ -172,3 +172,15 @@ type unixtime struct{}
 func (v unixtime) Append(b []byte, t time.Time) []byte {
 	return append(b, strconv.FormatInt(t.Unix(), 10)...)
 }
+
+type millisecond struct{}
+
+func (v millisecond) Append(b []byte, t time.Time) []byte {
+	n := t.Nanosecond() / int(time.Millisecond)
+	if n < 10 {
+		b = append(b, '0', '0')
+	} else if n < 100 {
+		b = append(b, '0')
+	}
+	return append(b, strconv.Itoa(n)...)
+}

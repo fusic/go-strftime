@@ -51,7 +51,7 @@ func TestFormat(t *testing.T) {
 		return
 	}
 
-	if !assert.Equal(t, "Monday Mon January Jan 20 Mon Jan  2 22:04:05 2006 01/02/06 02  2 2006-01-02 22 Jan 10 002 22 10 04 01 \n pm PM 22:04 10:04:05 PM 05 22:04:05 \t 01 1 01  2-Jan-2006 01 1 22:04:05 01/02/06 2006 06 UTC +0000 % 1136239445 001", s, `formatted result matches`) {
+	if !assert.Equal(t, "Monday Mon January Jan 20 Mon Jan  2 22:04:05 2006 01/02/06 02  2 2006-01-02 22 Jan 10 002 22 10 04 01 \n pm PM 22:04 10:04:05 PM 05 22:04:05 \t 01 1 01  2-JAN-2006 01 1 22:04:05 01/02/06 2006 06 UTC +0000 % 1136239445 001", s, `formatted result matches`) {
 		return
 	}
 }

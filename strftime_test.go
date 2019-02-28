@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	envload "github.com/lestrrat/go-envload"
-	"github.com/lestrrat/go-strftime"
+	envload "github.com/lestrrat-go/envload"
+	"github.com/lestrrat-go/strftime"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -173,6 +173,15 @@ func TestFormatMonth(t *testing.T) {
 	}
 
 	if !assert.Equal(t, " 1-MAR-0100", s, "padding is properly set") {
+		return
+	}
+}
+
+func TestGHIssue5(t *testing.T) {
+	const expected = `apm-test/logs/apm.log.01000101`
+	p, _ := strftime.New("apm-test/logs/apm.log.%Y%m%d")
+	dt := time.Date(100, 1, 1, 1, 0, 0, 0, time.UTC)
+	if !assert.Equal(t, expected, p.FormatString(dt), `patterns including 'pm' should be treated as verbatim formatter`) {
 		return
 	}
 }
